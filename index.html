@@ -1,1 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glow Clicker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@discord/embedded-app-sdk"></script>
+</head>
+<body>
+    <div id="ui-layer">
+        <div class="top-bar">
+            <h2 id="user-display">Connecting...</h2>
+            <div class="light-container">
+                <span id="light-count">0</span>
+                <small>LIGHT</small>
+            </div>
+        </div>
 
+        <div id="game-area">
+            <div id="particle-container"></div>
+            <img src="assets/glow.svg" id="glow-target" alt="Glow Orb">
+        </div>
+
+        <div class="shop-drawer">
+            <button id="upgrade-btn">
+                <span class="label">UPGRADE POWER</span>
+                <span class="price" id="cost-display">Cost: 10</span>
+            </button>
+        </div>
+
+        <div id="leaderboard-panel">
+            <h3>Leaderboard</h3>
+            <ul id="score-list">
+                <li>Global Leaderboard Loading...</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
