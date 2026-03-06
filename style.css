@@ -1,0 +1,113 @@
+:root {
+    --blurple: #5865f2;
+    --white: #ffffff;
+    --bg: #050507;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--white);
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+#ui-layer {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.top-bar {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.light-container {
+    font-size: 3rem;
+    font-weight: 900;
+    text-shadow: 0 0 20px var(--blurple);
+}
+
+#game-area {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#glow-target {
+    width: 280px;
+    height: 280px;
+    cursor: pointer;
+    filter: drop-shadow(0 0 40px rgba(88, 101, 242, 0.5));
+    transition: transform 0.05s ease;
+    animation: idle-float 4s infinite ease-in-out;
+}
+
+@keyframes idle-float {
+    0%, 100% { transform: scale(1) translateY(0); }
+    50% { transform: scale(1.05) translateY(-10px); }
+}
+
+#glow-target:active {
+    transform: scale(0.9);
+}
+
+.shop-drawer {
+    padding-bottom: 20px;
+}
+
+#upgrade-btn {
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--blurple), #4752c4);
+    border: none;
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(88, 101, 242, 0.3);
+    transition: 0.3s;
+}
+
+#upgrade-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(88, 101, 242, 0.5);
+}
+
+#upgrade-btn:disabled {
+    filter: grayscale(1);
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.particle {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: particle-fade 0.8s forwards;
+}
+
+@keyframes particle-fade {
+    to {
+        transform: translate(var(--x), var(--y));
+        opacity: 0;
+    }
+}
